@@ -1,0 +1,13 @@
+{
+  "name": "Panel Administrativo",
+  "short_name": "Panel Adm",
+  "start_url": "./?utm_source=web_app_manifest",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "16x16",
+      "type": "image/svg"
+    }
+  ]
+}
