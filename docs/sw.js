@@ -17,7 +17,6 @@ self.addEventListener("install", (e) => {
 
 self.addEventListener("activate", (e) => {
   const caheWitheList = [CACHE_NAME];
-  window.alert(urlsToCache[0]);
   e.waitUntil(
     caches.keys().then((cachesNames) =>
       cachesNames.map((cacheName) => {
