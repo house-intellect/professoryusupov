@@ -1,7 +1,7 @@
 const CACHE_NAME = "v1_cache_panel_adm",
   urlsToCache = [
     "window.pwaUrl",
-    "./manifest.json",
+    "manifest.json",
   ];
 
 self.addEventListener("install", (e) => {
