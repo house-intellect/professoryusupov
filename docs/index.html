@@ -57,18 +57,7 @@
     }
   }
 </style>
-<script>
-  function onLoadIframe() {
-    setTimeout(() => {
 
-      loading.style = "display: none";
-      iframe.style = ""
-    }, 1000);
-  }
-  function pwaSource() {
-    globalThis.pwaUrl = "https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec"
-  }
-</script>
 
 <body style=" margin: 0; padding: 0; height: 100vh; background-color: #F3F4F6;">
   <div id="loading" style="justify-content: center; align-items: center; display: flex; height: 100vh;">
@@ -83,11 +72,22 @@
     </div>
   </div>
   <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
-    src="https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec"
+    src="pwaSource()"
     frameborder="0" width="100%" height="100%"></iframe>
 </body>
 
+<script>
+  function onLoadIframe() {
+    setTimeout(() => {
 
+      loading.style = "display: none";
+      iframe.style = ""
+    }, 1000);
+  }
+  function pwaSource() {
+    globalThis.pwaUrl = "https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec"
+  }
+</script>
 
 <script src="script.js"></script>
 
