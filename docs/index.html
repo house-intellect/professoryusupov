@@ -72,7 +72,7 @@
     </div>
   </div>
   <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
-    src="pwaUrl"
+    src="pwaSource()"
     frameborder="0" width="100%" height="100%"></iframe>
 </body>
 
@@ -87,7 +87,7 @@
     }, 1000);
   }
   function pwaSource() {
-    pwaUrl
+    return pwaUrl
   }
 </script>
 
