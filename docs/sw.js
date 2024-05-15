@@ -20,7 +20,7 @@ self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((cachesNames) =>
       cachesNames.map((cacheName) => {
-        {console.log(cacheName);
+        console.log(cacheName);
         if (cacheName.indexOf(cacheName) === -1) {
           return caches.delete(cacheName);
         }
