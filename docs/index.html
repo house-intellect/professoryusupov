@@ -71,7 +71,7 @@
     </div>
   </div>
   <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
-    src="https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec"
+    src="pwaSource()"
     frameborder="0" width="100%" height="100%"></iframe>
 </body>
 
@@ -82,6 +82,9 @@
       loading.style = "display: none";
       iframe.style = ""
     }, 1000);
+  }
+  function pwaSource() {
+    globalThis.pwaUrl = "https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec"
   }
 </script>
 

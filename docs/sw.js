@@ -1,6 +1,6 @@
 const CACHE_NAME = "v1_cache_panel_adm",
   urlsToCache = [
-    "https://script.google.com/macros/s/AKfycbxV1Upno47DkZsofFvpIktELMG23LnJkgJ8LEqapQlJlDf7yJLE4Id9OdCY8To1vFg/exec",
+    "pwaSource()",
     "./manifest.json",
   ];
 
@@ -17,7 +17,7 @@ self.addEventListener("install", (e) => {
 
 self.addEventListener("activate", (e) => {
   const caheWitheList = [CACHE_NAME];
-
+  window.alert(urlsToCache[0]);
   e.waitUntil(
     caches.keys().then((cachesNames) =>
       cachesNames.map((cacheName) => {
