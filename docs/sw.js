@@ -9,7 +9,7 @@ self.addEventListener("install", (e) => {
     caches
       .open(CACHE_NAME)
       .then((cache) => {
-        return cache.addAll(urlsToCache).then((item) => {console.log(item); self.skipWaiting()});
+        return cache.addAll(urlsToCache).then((item) => self.skipWaiting());
       })
       .catch((err) => "fallo el registro del cache ", err)
   );
@@ -20,6 +20,7 @@ self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((cachesNames) =>
       cachesNames.map((cacheName) => {
+        {console.log(cacheName);
         if (cacheName.indexOf(cacheName) === -1) {
           return caches.delete(cacheName);
         }
