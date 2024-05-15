@@ -72,12 +72,13 @@
     </div>
   </div>
   <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
-    src="pwaSource()"
+    src="globalThis.pwaUrl"
     frameborder="0" width="100%" height="100%"></iframe>
 </body>
 
 <script>
   function onLoadIframe() {
+    globalThis.pwaUrl = "https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec"
     setTimeout(() => {
 
       loading.style = "display: none";
@@ -85,7 +86,7 @@
     }, 1000);
   }
   function pwaSource() {
-    globalThis.pwaUrl = "https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec"
+    globalThis.pwaUrl
   }
 </script>
 
