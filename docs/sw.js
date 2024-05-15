@@ -1,7 +1,7 @@
 const CACHE_NAME = "v1_cache_panel_adm",
   urlsToCache = [
     "https://script.google.com/macros/s/AKfycbw0oxkUYhpusFIJfVgRBpUbekL0GjLAYOmypWimNoL002Ay_D2CpL24-2-jGcUpliY/exec",
-    "manifest.json",
+    "./manifest.json",
   ];
 
 self.addEventListener("install", (e) => {
@@ -9,6 +9,7 @@ self.addEventListener("install", (e) => {
     caches
       .open(CACHE_NAME)
       .then((cache) => {
+        printf(cache);
         return cache.addAll(urlsToCache).then(() => self.skipWaiting());
       })
       .catch((err) => "fallo el registro del cache ", err)
