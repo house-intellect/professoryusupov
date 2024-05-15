@@ -7,32 +7,32 @@
     {
       "src": "./favicon.svg",
       "sizes": "16x16",
-      "type": "image/svg"
+      "type": "image/svg+xml+xml"
     },
     {
       "src": "./favicon.svg",
       "sizes": "24x24",
-      "type": "image/svg"
+      "type": "image/svg+xml"
     },
     {
       "src": "./favicon.svg",
       "sizes": "32x32",
-      "type": "image/svg"
+      "type": "image/svg+xml"
     },
     {
       "src": "./favicon.svg",
       "sizes": "64x64",
-      "type": "image/svg"
+      "type": "image/svg+xml"
     },
     {
       "src": "./favicon.svg",
       "sizes": "128x128",
-      "type": "image/svg"
+      "type": "image/svg+xml"
     },
     {
       "src": "./favicon.svg",
       "sizes": "256x256",
-      "type": "image/svg"
+      "type": "image/svg+xml"
     }
   ]
 }
