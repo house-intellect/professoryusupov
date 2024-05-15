@@ -5,34 +5,34 @@
   "display": "standalone",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/16/5868/5868632.png",
+      "src": "./favicon.svg",
       "sizes": "16x16",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/24/5868/5868632.png",
+      "src": "./favicon.svg",
       "sizes": "24x24",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/32/5868/5868632.png",
+      "src": "./favicon.svg",
       "sizes": "32x32",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/64/5868/5868632.png",
+      "src": "./favicon.svg",
       "sizes": "64x64",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/128/5868/5868632.png",
+      "src": "./favicon.svg",
       "sizes": "128x128",
-      "type": "image/png"
+      "type": "image/svg"
     },
     {
-      "src": "https://cdn-icons-png.flaticon.com/256/5868/5868632.png",
+      "src": "./favicon.svg",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/svg"
     }
   ]
 }
