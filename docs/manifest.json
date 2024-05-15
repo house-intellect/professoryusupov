@@ -1,6 +1,6 @@
 {
-  "name": "Panel Administrativo",
-  "short_name": "Panel Adm",
+  "name": "Стоматологическая клиника профессора Юсупова",
+  "short_name": "Доктор Юсупов",
   "start_url": "./?utm_source=web_app_manifest",
   "display": "standalone",
   "icons": [
