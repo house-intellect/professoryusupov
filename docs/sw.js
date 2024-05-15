@@ -9,8 +9,7 @@ self.addEventListener("install", (e) => {
     caches
       .open(CACHE_NAME)
       .then((cache) => {
-        console.log(cache);
-        return cache.addAll(urlsToCache).then(() => self.skipWaiting());
+        return cache.addAll(urlsToCache).then((item) => {console.log(item); self.skipWaiting()});
       })
       .catch((err) => "fallo el registro del cache ", err)
   );
