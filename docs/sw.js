@@ -1,6 +1,6 @@
 const CACHE_NAME = "v1_cache_panel_adm",
   urlsToCache = [
-    "pwaSource()",
+    "window.pwaUrl",
     "./manifest.json",
   ];
 
