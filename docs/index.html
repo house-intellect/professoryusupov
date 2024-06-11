@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-signin-client_id" content="424383142259-hhgoga4jo7fg1p5eh5a0hmaon81geh8m.apps.googleusercontent.com">
   <title></title>
   <link rel="manifest" href="./manifest.json">
   <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
@@ -75,8 +74,13 @@
   <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
     src=""
     frameborder="0" width="100%" height="100%"></iframe>
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  <a href="#" onclick="signOut();">Sign out</a>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <div id="g_id_onload"
+       data-client_id="424383142259-hhgoga4jo7fg1p5eh5a0hmaon81geh8m.apps.googleusercontent.com"
+       data-callback="handleCredentialResponse">
+  </div>
+  <div class="g_id_signin" data-type="standard"></div>
+
 </body>
 
 <script>
@@ -93,21 +97,16 @@
   function pwaSource() {
     return pwaUrl;
   }
-  function onSignIn(googleUser) {
+  function handleCredentialResponse(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   }
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
 </script>
 
 <script src="script.js"></script>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 </html>
