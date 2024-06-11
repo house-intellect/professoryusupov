@@ -8,6 +8,18 @@
   <title></title>
   <link rel="manifest" href="./manifest.json">
   <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
+  <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+  <script>
+    function start() {
+      gapi.load('auth2', function() {
+        auth2 = gapi.auth2.init({
+          client_id: '424383142259-hhgoga4jo7fg1p5eh5a0hmaon81geh8m.apps.googleusercontent.com',
+          // Scopes to request in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+      });
+    }
+  </script>
 </head>
 
 <style>
@@ -74,7 +86,7 @@
   <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
     src=""
     border="0" width="100%" height="100%"></iframe>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <div id="g_id_onload"
        data-client_id="424383142259-hhgoga4jo7fg1p5eh5a0hmaon81geh8m.apps.googleusercontent.com"
        data-callback="handleCredentialResponse">
@@ -85,7 +97,7 @@
 
 <script>
   function onLoadIframe() {
-
+    console.log('onLoadIframe');
   }
   function pwaSource() {
     return pwaUrl;
