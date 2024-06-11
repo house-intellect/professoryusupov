@@ -24,11 +24,11 @@
         console.log('Full Name: ', userInfo.name);
         console.log('Email: ', userInfo.email);
         setTimeout(() => {
-          const pwaUrl = "https://script.google.com/macros/s/AKfycbw5-xBbRd0jyRzc_wuSG9hrU4AfLJozs5nD3lAqqR_m47vKIcERPOh-e07GNM3t0CIqfA/exec";
+          const pwaUrl = "https://script.google.com/macros/s/AKfycbzA6ZWch3YS8lpRlBAX0JRHuS0kePC4hWtaTpcGOMSrdDZL0VFlNk05GDFjGhHOrqnDBg/exec";
           document.getElementById('iframe').src = pwaUrl;
           loading.style = "display: none";
           iframe.style = ""
-        }, 1000);
+        }, 500);
       } else {
        // User is not signed in
         console.log('User is not signed in');
