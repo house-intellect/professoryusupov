@@ -90,9 +90,11 @@
     frameborder="0" width="100%" height="100vh"></iframe>
   <script>
     const pwaUrl = "https://script.google.com/macros/s/AKfycbxxUYi0SMNd-I02-m3vTlNmIu3qqztaoNRSrNK7_sY5gGdY_naICIgyEAAvnyaffPgVXw/exec";
-    document.getElementById('iframe').src=pwaUrl;
+
     function onLoadIframe(obj) {
       console.log('onLoadIframe');
+      //var iframe = document.getElementById('iframe');
+      if (obj.src!=pwaUrl) obj.src = pwaUrl;
       //resizeIframe(obj);
     }
     function pwaSource() {
