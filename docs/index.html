@@ -141,10 +141,10 @@
 
       if (done || attempts >= retries) {
           clearInterval(authChecker);
-          auth(evt);
+          auth();
       }
   }
-  function auth(evt){
+  function auth(){
    var currentUrl = document.location.href;
           var authPage = pwaUrl+'?auth=true&redirect=' + encodeURIComponent(currentUrl);
           console.log("authPage: "+authPage);
@@ -153,7 +153,7 @@
   }
   window.authChecker = setInterval(checkIfAuthed, 500);
   document.getElementById('authButton').addEventListener('click',function(evt){
-         auth(evt);
+         auth();
       });
 </script>
 </html>
