@@ -122,7 +122,7 @@
     return JSON.parse(jsonPayload);
   0}
   // Give iframe some time to load, while re-checking
-  var retries = 5;
+  var retries = 15;
   var attempts = 0;
   var done = false;
   function checkIfAuthed() {
@@ -152,7 +152,7 @@
           window.open(authPage,'_blank');
           <!--window.open(authPage, '_self').focus();-->
   }
-  window.authChecker = setInterval(checkIfAuthed, 1500);
+  window.authChecker = setInterval(checkIfAuthed, 3000);
   document.getElementById('authButton').addEventListener('click',function(evt){
          auth();
       });
