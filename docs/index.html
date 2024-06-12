@@ -85,7 +85,7 @@
     src=""
     frameborder="0" border="none" width="100%" height="100%"></iframe>
   <script>
-    const pwaUrl = "https://script.google.com/macros/s/AKfycbzLf_Vb39ApVvuMiHfCjR9-Hi1tiZuBnf-O90VpvgNu5BLoFg7avs33-hE3BohVkb9IZg/exec";
+    const pwaUrl = "https://script.google.com/macros/s/AKfycbw85A5HZwDx8v3hsoE9XWTu2XDhpT3rZEoWlX1xqUIzcMyHq4bc-zXh_gmji0TRi4ziug/exec";
     document.getElementById('iframe').src=pwaUrl;
     function onLoadIframe() {
       console.log('onLoadIframe');
@@ -142,11 +142,11 @@
         }
 
         if (attempts >= retries) {
-            clearInterval(authChecker);
             auth();
         }
     }
     function auth(){
+      clearInterval(authChecker);
       iframe.src = "";
       var currentUrl = document.location.href;
       var authPage = pwaUrl+'?auth=true&redirect=' + encodeURIComponent(currentUrl);
