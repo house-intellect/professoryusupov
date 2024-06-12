@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
+    const pwaUrl = "https://script.google.com/macros/s/AKfycbws9mK_hFyQyqeCQcXaciTGpOnIEv53NeipgJe0OBwx0tjMbPwJnJITtkOlKRAIdrIOcA/exec";
     function onLoadIframe() {
       console.log('onLoadIframe');
     }
@@ -24,10 +25,9 @@
         console.log('Full Name: ', userInfo.name);
         console.log('Email: ', userInfo.email);
         setTimeout(() => {
-          const pwaUrl = "https://script.google.com/macros/s/AKfycbwSaoox_hmIgfRceKYjtneP2rak_Mr6rcb4qxqUX4YpVH9IR6-w0VSZfXo08EezvVUuaw/exec";
           document.getElementById('iframe').src = pwaUrl;
           loading.style = "display: none";
-          iframe.style = ""
+          iframe.style = "border: none !important;"
         }, 500);
       } else {
        // User is not signed in
@@ -44,7 +44,40 @@
       return JSON.parse(jsonPayload);
     0}
   </script>
+  <!-- Check iframe contentWindow.length -->
+  <script>
+    // Give iframe some time to load, while re-checking
+    var retries = 5;
+    var attempts = 0;
+    var done = false;
+    function checkIfAuthed() {
+        attempts++;
+        console.log(`Checking if authed...`);
+        var iframe = document.getElementById('iframe');
+        if (iframe.contentWindow.length) {
+            // User has signed in, preventing x-frame deny issue
+            // Hide auth prompt overlay
+            document.getElementById('loading').style.display = 'none';
+            iframe.src = pwaUrl;
+            iframe.style = "border: none !important;"
+            done = true;
+        } else {
+            console.log(`iframe.contentWindow.length is falsy, user needs to auth`);
+        }
 
+        if (done || attempts >= retries) {
+            clearInterval(authChecker);
+        }
+    }
+    window.authChecker = setInterval(checkIfAuthed, 500);
+    document.querySelectorAll('.authButton').forEach(function(elem){
+        elem.addEventListener('click',function(evt){
+            var currentUrl = document.location.href;
+            var authPage = pwaUrl+'?auth=true&redirect=' + encodeURIComponent(currentUrl);
+            window.open(authPage,'_blank');
+        });
+    });
+  </script>
   <script src="script.js"></script>
 </head>
 
@@ -116,6 +149,6 @@
   </div>
   <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
     src=""
-    frameborder="0" border="0" width="100%" height="100%"></iframe>
+    frameborder="0" border="none" width="100%" height="100%"></iframe>
 </body>
 </html>
