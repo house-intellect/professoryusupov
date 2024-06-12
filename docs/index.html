@@ -9,7 +9,11 @@
   <link rel="manifest" href="./manifest.json">
   <link rel="shortcut icon" href="./favicon.svg" type="image/x-icon">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-
+  <script>
+    function resizeIframe(obj) {
+      obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    }
+  </script>
 
   <script src="script.js"></script>
 </head>
@@ -81,15 +85,15 @@
 <!--      <h2 style="color: blue;">Загрузка...</h2>-->
 <!--    </div>-->
   </div>
-  <iframe id="iframe" onload="onLoadIframe()" style="display: flex;"
+  <iframe id="iframe" onload="onLoadIframe(this)" style="display: flex;"
     src=""
-    frameborder="0" border="none" width="100%" height="100%"></iframe>
+    frameborder="0" width="100%" height="100vh"></iframe>
   <script>
     const pwaUrl = "https://script.google.com/macros/s/AKfycbxxUYi0SMNd-I02-m3vTlNmIu3qqztaoNRSrNK7_sY5gGdY_naICIgyEAAvnyaffPgVXw/exec";
     document.getElementById('iframe').src=pwaUrl;
-    function onLoadIframe() {
+    function onLoadIframe(obj) {
       console.log('onLoadIframe');
-
+      //resizeIframe(obj);
     }
     function pwaSource() {
       return pwaUrl;
