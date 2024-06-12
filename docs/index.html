@@ -122,7 +122,7 @@
     return JSON.parse(jsonPayload);
   0}
   // Give iframe some time to load, while re-checking
-  var retries = 3;
+  var retries = 5;
   var attempts = 0;
   var done = false;
   function checkIfAuthed() {
@@ -132,10 +132,12 @@
       if (iframe.contentWindow.length) {
           // User has signed in, preventing x-frame deny issue
           // Hide auth prompt overlay
-          document.getElementById('loading').style.display = 'none';
+<!--          document.getElementById('loading').style.display = 'none';-->
           //iframe.src = pwaUrl;
-          iframe.style = "border: none !important;"
+<!--          iframe.style = "border: none !important;"-->
           done = true;
+          clearInterval(authChecker);
+          console.log(`authed successfully!`);
       } else {
           console.log(`iframe.contentWindow.length is falsy, user needs to auth`);
       }
