@@ -142,7 +142,7 @@
           console.log(`iframe.contentWindow.length is falsy, user needs to auth`);
       }
 
-      if (done || attempts >= retries) {
+      if (attempts >= retries) {
           clearInterval(authChecker);
           auth();
       }
