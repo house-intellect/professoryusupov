@@ -43,9 +43,6 @@
       }).join(''));
       return JSON.parse(jsonPayload);
     0}
-  </script>
-  <!-- Check iframe contentWindow.length -->
-  <script>
     // Give iframe some time to load, while re-checking
     var retries = 5;
     var attempts = 0;
@@ -70,14 +67,14 @@
         }
     }
     window.authChecker = setInterval(checkIfAuthed, 500);
-    document.querySelectorAll('.authButton').forEach(function(elem){
-        elem.addEventListener('click',function(evt){
+    document.getElementById('authButton').addEventListener('click',function(evt){
             var currentUrl = document.location.href;
             var authPage = pwaUrl+'?auth=true&redirect=' + encodeURIComponent(currentUrl);
+            console.log('authPage: "+authPage);
             window.open(authPage,'_blank');
         });
-    });
   </script>
+
   <script src="script.js"></script>
 </head>
 
@@ -137,7 +134,7 @@
          data-client_id="424383142259-hhgoga4jo7fg1p5eh5a0hmaon81geh8m.apps.googleusercontent.com"
          data-callback="handleCredentialResponse">
     </div>
-    <button class="authButton">Authorize</button>
+    <button id="authButton">Authorize</button>
 <!--    <div class="loader">-->
 <!--      <div class="outer"></div>-->
 <!--      <div class="middle"></div>-->
