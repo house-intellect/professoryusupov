@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,10 +13,8 @@
       obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
     }
   </script>
-
   <script src="script.js"></script>
 </head>
-
 <style>
   .loader {
     position: relative;
@@ -65,42 +62,29 @@
     }
   }
 </style>
-
-
 <body style=" margin: 0; padding: 0; height: 100vh; background-color: #F3F4F6;">
-  <div id="loading" style="justify-content: center; align-items: center; display: flex; height: 100vh;">
-    <div class="g_id_signin" data-type="standard" data-auto_prompt="false"></div>
-    <div id="g_id_onload"
-         data-client_id="424383142259-hhgoga4jo7fg1p5eh5a0hmaon81geh8m.apps.googleusercontent.com"
-         data-callback="handleCredentialResponse">
-    </div>
-    <!--<button id="authButton">Authorize</button>-->
-   <!-- <div class="loader">
-      <div class="outer"></div>
-      <div class="middle"></div>
-      <div class="inner"></div>
-      <br>
-      <br>
-      <br><br><br><br>
-      <h2 style="color: blue;">Загрузка...</h2>
-    </div>-->
-  </div>
-  <iframe id="iframe" onload="onLoadIframe(this)" style="display: none;"
-    src=""
-    frameborder="0" width="100%" height="100%"></iframe>
+<div id="loading" style="justify-content: center; align-items: center; display: flex; height: 100vh;">
+  <div class="g_id_signin" data-type="standard" data-auto_prompt="false"></div>
+  <div id="g_id_onload" data-client_id="424383142259-hhgoga4jo7fg1p5eh5a0hmaon81geh8m.apps.googleusercontent.com" data-callback="handleCredentialResponse"></div>
+  <!--<button id="authButton">Authorize</button>-->
+  <!-- <div class="loader"><div class="outer"></div><div class="middle"></div><div class="inner"></div><br><br><br><br><br><br><h2 style="color: blue;">Загрузка...</h2></div>-->
+</div>
+<iframe id="iframe" onload="onLoadIframe(this)" style="display: none;" src="" frameborder="0" width="100%" height="100%"></iframe>
 </body>
 <script>
-  const pwaUrl = "https://script.google.com/macros/s/AKfycbyzNyg-WGtKszWi3rfNmHe5o3U3zbZPeGpe1RxOXEJE-KUhB-l1jdhXHuC-OcrpeqDqtA/exec";
+  const pwaUrl = "https://script.google.com/macros/s/AKfycbz45U9H3b8__RrwY7b-z2f6jH0A1YQDt_7gWasb6SMhqKLGCllw8ptRHZXCvI9wOqbjjw/exec";
 
   function onLoadIframe(obj) {
     console.log('onLoadIframe');
     //var iframe = document.getElementById('iframe');
-    if (obj.src!=pwaUrl) obj.src = pwaUrl;
+    if (obj.src != pwaUrl) obj.src = pwaUrl;
     //resizeIframe(obj);
   }
+
   function pwaSource() {
     return pwaUrl;
   }
+
   function handleCredentialResponse(response) {
     if (response.credential) {
       // User is signed in
@@ -112,13 +96,13 @@
         iframe.style = "border: none !important;"
         document.getElementById('iframe').src = pwaUrl;
         loading.style = "display: none";
-     }, 500);
+      }, 500);
     } else {
-     // User is not signed in
+      // User is not signed in
       console.log('User is not signed in');
-
-   }
+    }
   }
+
   function parseJwt(token) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -131,40 +115,39 @@
   var retries = 5;
   var attempts = 0;
   var done = false;
-  function checkIfAuthed() {
-      attempts++;
-      console.log(`Checking if authed...`);
-      var iframe = document.getElementById('iframe');
-      if (iframe.contentWindow.length) {
-          // User has signed in, preventing x-frame deny issue
-          // Hide auth prompt overlay
-          document.getElementById('loading').style.display = 'none';
-          iframe.style = "border: none !important;";
-          if (iframe.src!=pwaUrl) iframe.src = pwaUrl;
-          done = true;
-          clearInterval(authChecker);
-          console.log(`authed successfully!`);
-      } else {
-          console.log(`iframe.contentWindow.length is false, user needs to auth`);
-      }
 
-      if (attempts >= retries) {
-          auth();
-      }
+  function checkIfAuthed() {
+    attempts++;
+    console.log(`Checking if authed...`);
+    var iframe = document.getElementById('iframe');
+    if (iframe.contentWindow.length) {
+      // User has signed in, preventing x-frame deny issue
+      // Hide auth prompt overlay
+      document.getElementById('loading').style.display = 'none';
+      iframe.style = "border: none !important;";
+      if (iframe.src != pwaUrl) iframe.src = pwaUrl;
+      done = true;
+      clearInterval(authChecker);
+      console.log(`authed successfully!`);
+    } else {
+      console.log(`iframe.contentWindow.length is false, user needs to auth`);
+    }
+    if (attempts >= retries) {
+      auth();
+    }
   }
-  function auth(){
+
+  function auth() {
     clearInterval(authChecker);
     iframe.src = "";
     var currentUrl = document.location.href;
-    var authPage = pwaUrl+'?auth=true&redirect=' + encodeURIComponent(currentUrl);
-    console.log("authPage: "+authPage);
-<!--      window.open(authPage,'_blank');-->
-    window.open(authPage, '_self');
+    var authPage = pwaUrl + '?auth=true&redirect=' + encodeURIComponent(currentUrl);
+    console.log("authPage: " + authPage); < !--window.open(authPage, '_blank');
+    -- > window.open(authPage, '_self');
   }
   window.authChecker = setInterval(checkIfAuthed, 3000);
-  document.getElementById('authButton').addEventListener('click',function(evt){
-         auth();
-      });
+  document.getElementById('authButton').addEventListener('click', function(evt) {
+    auth();
+  });
 </script>
-
 </html>
