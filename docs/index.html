@@ -87,9 +87,10 @@
 </body>
 <script>
   const pwaUrl = "https://script.google.com/macros/s/AKfycbynZ-v5sDiQnGfYNcGLCm1COi5lJWzOcmOFrBr7W1E0fneCwhuYejSylOPzxrX8SIQ7Aw/exec";
-  document.getElementById('iframe').src=pwaUrl;
+
   function onLoadIframe() {
     console.log('onLoadIframe');
+    document.getElementById('iframe').src=pwaUrl;
   }
   function pwaSource() {
     return pwaUrl;
