@@ -86,7 +86,7 @@
     frameborder="0" border="none" width="100%" height="100%"></iframe>
 </body>
 <script>
-  const pwaUrl = "https://script.google.com/macros/s/AKfycbwTrLqCCMN5nnkzkv8drx_8AX2QvVCZgBAxdTL_rUnqCJck6eqhEX6-N2VIbeuB4iRWiw/exec";
+  const pwaUrl = "https://script.google.com/macros/s/AKfycbwINwZP-FVrpCOqGkx9MLzWcSsA_SwNINM0IAH7-HuqbNzFug0onPiKp8Z4mN0qdpgFyA/exec";
   //document.getElementById('iframe').src=pwaUrl;
   function onLoadIframe() {
     console.log('onLoadIframe');
@@ -132,9 +132,9 @@
       if (iframe.contentWindow.length) {
           // User has signed in, preventing x-frame deny issue
           // Hide auth prompt overlay
-<!--          document.getElementById('loading').style.display = 'none';-->
+          document.getElementById('loading').style.display = 'none';
           iframe.src = pwaUrl;
-<!--          iframe.style = "border: none !important;"-->
+          iframe.style = "border: none !important;";
           done = true;
           clearInterval(authChecker);
           console.log(`authed successfully!`);
