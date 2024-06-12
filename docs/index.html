@@ -70,7 +70,7 @@
     document.getElementById('authButton').addEventListener('click',function(evt){
             var currentUrl = document.location.href;
             var authPage = pwaUrl+'?auth=true&redirect=' + encodeURIComponent(currentUrl);
-            console.log('authPage: "+authPage);
+            console.log("authPage: "+authPage);
             window.open(authPage,'_blank');
         });
   </script>
