@@ -81,12 +81,12 @@
 <!--      <h2 style="color: blue;">Загрузка...</h2>-->
 <!--    </div>-->
   </div>
-  <iframe id="iframe" onload="onLoadIframe()" style="display: none;"
+  <iframe id="iframe" onload="onLoadIframe()" style="display: hidden;"
     src=""
     frameborder="0" border="none" width="100%" height="100%"></iframe>
 </body>
 <script>
-  const pwaUrl = "https://script.google.com/macros/s/AKfycbwINwZP-FVrpCOqGkx9MLzWcSsA_SwNINM0IAH7-HuqbNzFug0onPiKp8Z4mN0qdpgFyA/exec";
+  const pwaUrl = "https://script.google.com/macros/s/AKfycbz_p5d2qlKXv_9MsWOVBCNwRZr3fHoXTCATF11sfvgAHE0GINpgXWdwmDoWY2-wZXh3NQ/exec";
   //document.getElementById('iframe').src=pwaUrl;
   function onLoadIframe() {
     console.log('onLoadIframe');
@@ -151,8 +151,8 @@
    var currentUrl = document.location.href;
           var authPage = pwaUrl+'?auth=true&redirect=' + encodeURIComponent(currentUrl);
           console.log("authPage: "+authPage);
-<!--          window.open(authPage,'_blank');-->
-          window.open(authPage, '_top').focus();
+          window.open(authPage,'_blank');
+<!--          window.open(authPage, '_top').focus();-->
   }
   window.authChecker = setInterval(checkIfAuthed, 3000);
   document.getElementById('authButton').addEventListener('click',function(evt){
