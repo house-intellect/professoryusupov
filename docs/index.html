@@ -142,8 +142,8 @@
     iframe.src = "";
     var currentUrl = document.location.href;
     var authPage = pwaUrl + '?auth=true&redirect=' + encodeURIComponent(currentUrl);
-    console.log("authPage: " + authPage); < !--window.open(authPage, '_blank');
-    -- > window.open(authPage, '_self');
+    console.log("authPage: " + authPage); 
+    window.open(authPage, '_self');
   }
   window.authChecker = setInterval(checkIfAuthed, 3000);
   document.getElementById('authButton').addEventListener('click', function(evt) {
